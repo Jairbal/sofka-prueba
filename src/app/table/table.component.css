@@ -1,0 +1,22 @@
+.table {
+    background-color: white;
+    padding: 1rem;
+    width: 100%;
+    color: var(--primar-text);
+}
+
+.table-head {
+    padding: 1rem;
+    background-color: var(--primary);
+    height: 3rem;
+    border-bottom: 5px;
+    border-color: var(--primary-text);
+}
+
+.table-head__row {
+    padding: 1rem 0;
+}
+
+.table-head__col {
+    text-align: center;
+}

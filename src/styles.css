@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "prelo-book", sans-serif;
+    color: var(--primary-text)
+}
+
+:root {
+    --primary: #eef1f9;
+    --primary-yellow: #ffdd00;
+    --primary-blue:#0f265c;
+    --primary-gray: #d5d5d5;
+    --primary-text: #495057;
+}
