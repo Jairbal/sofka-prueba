@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { TABLE_HEAD } from '../../constants/table.constants';
+import { TABLE_HEAD } from '../../../constants/table.constants';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
-import { ProductService } from '../services/product.service';
-import { IProduct } from '../../models/product.model';
+import { ProductService } from '../../services/product.service';
+import { IProduct } from '../../../models/product.model';
 
 @Component({
   selector: 'app-table',
