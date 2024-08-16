@@ -5,6 +5,7 @@ import { faCircleInfo, faEllipsisVertical } from '@fortawesome/free-solid-svg-ic
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../../models/product.model';
 import { ProductImageComponent } from '../product-image/product-image.component';
+import { dateFormat } from '../../../utils/date.util';
 
 @Component({
   selector: 'app-table',
@@ -38,17 +39,9 @@ export class TableComponent implements OnInit {
     const value = target.value;
     this.fetchProducts(Number(value));
   }
+  
 
-  dateFormat(_date: string): string {
-    const date = new Date(_date);
-    if (isNaN(date.getTime())) {
-      return 'Fecha inválida';
-    }
-
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-
-    return `${day}/${month}/${year}`;
+  _dateFormat(_date: string): string {
+    return dateFormat(_date)
   }
 }

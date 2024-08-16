@@ -5,6 +5,7 @@ import { ProductService } from '../../services/product.service';
 import { dateValidator } from '../../validators/date.validator';
 import { MessageService } from '../../services/message.service';
 import { Router } from '@angular/router';
+import { dateFormat } from '../../../utils/date.util';
 
 @Component({
   selector: 'app-add-product-form',
@@ -31,12 +32,22 @@ export class AddProductFormComponent implements OnInit {
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(200)]],
       logo: ['', Validators.required],
       date_release: ['', [Validators.required, dateValidator]],
-      date_revision: ['', [Validators.required, dateValidator]]
+      date_revision: [{ value: '', disabled: true }]
     })
   }
 
   isInputError (input: AbstractControl): boolean {
     return Boolean(input.touched && input.errors);
+  }
+
+  onBlurDateRelease(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+    const date = new Date(value);
+    const year = date.getFullYear();
+    const date_revision = date.setFullYear(year+1)
+    const formatDate = dateFormat(date_revision);
+    this.productForm.get('date_revision')?.setValue(formatDate);
   }
 
   sendProduct(): void {

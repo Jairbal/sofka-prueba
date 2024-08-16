@@ -44,7 +44,7 @@
         <div class='productForm-row'>
             <div class='productForm-input__container'>
                 <label class="productForm-input__label" for="date_release">Fecha de liberación</label>
-                <input type="text" formControlName="date_release" id="date_release"
+                <input (blur)="onBlurDateRelease($event)" type="text" formControlName="date_release" id="date_release"
                     [ngClass]="isInputError(productForm.get('date_release')!) ? 'productForm-input__error ' : ''"
                     class="productForm-input" />
                 <div *ngIf="productForm.get('date_release')?.invalid && productForm.get('date_release')?.touched">
@@ -54,7 +54,7 @@
             </div>
             <div class='productForm-input__container'>
                 <label class="productForm-input__label" for="date_revision">Fecha de revisión</label>
-                <input [disabled]="true" type="text" formControlName="date_revision" id="date_revision"
+                <input type="text" formControlName="date_revision" id="date_revision"
                     [ngClass]="isInputError(productForm.get('date_revision')!) ? 'productForm-input__error ' : ''"
                     class="productForm-input" />
                 <div *ngIf="productForm.get('date_revision')?.invalid && productForm.get('date_revision')?.touched">

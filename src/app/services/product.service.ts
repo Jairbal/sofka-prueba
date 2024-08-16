@@ -30,7 +30,7 @@ export class ProductService {
     return (control: AbstractControl) => {
       const id = control.value;
       return this.http.get<any>(`/bp/products/verification/${id}`).pipe(
-        map(({result}) => (result) ? {isValidId: true}: null)
+        map(({result}) => (result) ? null : {isValidId: true})
       )
     }
   }
