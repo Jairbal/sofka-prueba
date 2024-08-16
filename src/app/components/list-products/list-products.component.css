@@ -1,0 +1,27 @@
+.listProducts {
+    padding: 5rem;
+    background-color: var(--primary);
+    height: 100%;
+}
+
+.listProducts-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.listProducts-button {
+    border: 0;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+.listProducts-button__send {
+    background-color: rgba(var(--primary-yellow), 0.75);
+}
+
+.listProducts-button__send:hover {
+    background-color: rgb(var(--primary-yellow));
+}

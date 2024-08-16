@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TABLE_HEAD } from '../../../constants/table.constants';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +12,7 @@ import { IProduct } from '../../../models/product.model';
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
   faCircleInfo = faCircleInfo;
   tableHead = TABLE_HEAD;
   products: IProduct[] = [];

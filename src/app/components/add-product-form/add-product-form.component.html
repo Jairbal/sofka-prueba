@@ -1,0 +1,72 @@
+<div class='productForm'>
+    <h2 class='productForm-title'>Formulario de Registro</h2>
+    <form [formGroup]="productForm" (ngSubmit)="sendProduct()" class="productForm-form">
+        <div class='productForm-row'>
+            <div class='productForm-input__container'>
+                <label class="productForm-input__label" for="ID">ID</label>
+                <input type="text" formControlName="id" id="id"
+                    [ngClass]="isInputError(productForm.get('id')!) ? 'productForm-input__error ' : ''"
+                    class="productForm-input" />
+                <div *ngIf="productForm.get('id')?.invalid && productForm.get('id')?.touched">
+                    <div *ngIf="productForm.get('id')?.errors" class="error">ID no valido!</div>
+                </div>
+            </div>
+            <div class='productForm-input__container'>
+                <label class="productForm-input__label" for="name">Nombre</label>
+                <input type="text" formControlName="name" id="name"
+                    [ngClass]="isInputError(productForm.get('name')!) ? 'productForm-input__error ' : ''"
+                    class="productForm-input" />
+                <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">
+                    <div *ngIf="productForm.get('name')?.errors" class="error">Nombre no valido!</div>
+                </div>
+            </div>
+        </div>
+        <div class='productForm-row'>
+            <div class='productForm-input__container'>
+                <label class="productForm-input__label" for="description">Descripción</label>
+                <input type="text" formControlName="description" id="description"
+                    [ngClass]="isInputError(productForm.get('description')!) ? 'productForm-input__error ' : ''"
+                    class="productForm-input" />
+                <div *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched">
+                    <div *ngIf="productForm.get('description')?.errors" class="error">Descripción no valido!</div>
+                </div>
+            </div>
+            <div class='productForm-input__container'>
+                <label class="productForm-input__label" for="logo">Logo</label>
+                <input type="text" formControlName="logo" id="logo"
+                    [ngClass]="isInputError(productForm.get('logo')!) ? 'productForm-input__error ' : ''"
+                    class="productForm-input" />
+                <div *ngIf="productForm.get('logo')?.invalid && productForm.get('logo')?.touched">
+                    <div *ngIf="productForm.get('logo')?.errors" class="error">Logo no valido!</div>
+                </div>
+            </div>
+        </div>
+        <div class='productForm-row'>
+            <div class='productForm-input__container'>
+                <label class="productForm-input__label" for="date_release">Fecha de liberación</label>
+                <input type="text" formControlName="date_release" id="date_release"
+                    [ngClass]="isInputError(productForm.get('date_release')!) ? 'productForm-input__error ' : ''"
+                    class="productForm-input" />
+                <div *ngIf="productForm.get('date_release')?.invalid && productForm.get('date_release')?.touched">
+                    <div *ngIf="productForm.get('date_release')?.errors" class="error">Fecha de liberación no valida!
+                    </div>
+                </div>
+            </div>
+            <div class='productForm-input__container'>
+                <label class="productForm-input__label" for="date_revision">Fecha de revisión</label>
+                <input [disabled]="true" type="text" formControlName="date_revision" id="date_revision"
+                    [ngClass]="isInputError(productForm.get('date_revision')!) ? 'productForm-input__error ' : ''"
+                    class="productForm-input" />
+                <div *ngIf="productForm.get('date_revision')?.invalid && productForm.get('date_revision')?.touched">
+                    <div *ngIf="productForm.get('date_revision')?.errors" class="error">Fecha de revisión no valida!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='productForm-buttons'>
+            <button type="reset" class='productForm-buttons__button productForm-buttons__reset'>Reiniciar</button>
+            <button type="submit" [disabled]="!productForm.valid"
+                class='productForm-buttons__button productForm-buttons__send'>Enviar</button>
+        </div>
+    </form>
+</div>

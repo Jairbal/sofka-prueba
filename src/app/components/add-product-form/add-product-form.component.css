@@ -1,0 +1,94 @@
+.productForm {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 5rem;
+    background-color: var(--primary);
+}
+
+.productForm-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    font-size: 2.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-gray);
+}
+
+.productForm-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.productForm-form {
+    background-color: white;
+    padding: 5rem;
+}
+
+.productForm-input__container {
+    height: 112px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.productForm-input__label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.productForm-input {
+    border: 2px solid var(--primary-gray);
+    border-radius: 5px;
+    height: 1.5rem;
+    outline: none;
+    padding: 10px;
+}
+
+.productForm-input__error {
+    border: 2px solid red;
+}
+
+.error {
+    color: red;
+}
+
+.productForm-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: row;
+    margin-top: 4rem;
+}
+
+.productForm-buttons__button {
+    border: 0;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+.productForm-buttons__send {
+    background-color: rgba(var(--primary-yellow), 0.75);
+}
+
+.productForm-buttons__send:hover {
+    background-color: rgb(var(--primary-yellow));
+}
+
+.productForm-buttons__reset {
+    background-color: var(--primary-gray);
+}
+
+.productForm-buttons__button:disabled {
+    background-color: rgba(var(--primary-yellow), 0.4);
+}

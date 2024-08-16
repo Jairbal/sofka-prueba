@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { API_BASE } from '../../constants/api.constants';
+import { catchError, map, Observable, of } from 'rxjs';
 import { IProduct } from '../../models/product.model';
 import { IResponse } from '../../models/response.model';
+import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 
 export type EntityResponseType = HttpResponse<IResponse<IProduct[]>>
+export type EntityResponseIdType = HttpResponse<boolean>
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,22 @@ export class ProductService {
 
   getProducts(): Observable<EntityResponseType> {
     return this.http.get<IResponse<IProduct[]>>("/bp/products", { observe: 'response' });
+  }
+
+  submitProduct(productData: any): Observable<any> {
+    console.log('productData', productData)
+    productData.date_release = new Date(productData.date_release).toISOString();
+    productData.date_revision = new Date(productData.date_revision).toISOString();
+    return this.http.post('/bp/products', productData);
+  }
+
+
+  isValidId(): AsyncValidatorFn {
+    return (control: AbstractControl) => {
+      const id = control.value;
+      return this.http.get<any>(`/bp/products/verification/${id}`).pipe(
+        map(({result}) => (result) ? {isValidId: true}: null)
+      )
+    }
   }
 }

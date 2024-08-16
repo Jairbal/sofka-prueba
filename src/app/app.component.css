@@ -1,5 +1,5 @@
 .app-wrapper {
-    padding: 5rem;
+    padding: 2rem;
 }
 
 .app-head {
@@ -14,9 +14,4 @@
     margin-left: 0.5rem;
     font-size: 2rem;
     font-weight: 300;
-}
-
-.app-body {
-    padding: 5rem;
-    background-color: var(--primary);
 }
