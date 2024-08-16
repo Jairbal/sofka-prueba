@@ -1,7 +1,10 @@
 <div class="app-wrapper">
     <div class="app-head">
-        <fa-icon size="2x" [icon]="faMoneyBill1Wave"></fa-icon>
-        <span class="app-head__title">BANCO</span>
+        <a class="app-head__home" routerLink="/" routerLinkActive="active">
+            <fa-icon size="2x" [icon]="faMoneyBill1Wave"></fa-icon>
+            <span class="app-head__title">BANCO</span>
+        </a>
+        <app-message/>
     </div>
 </div>
 <router-outlet />

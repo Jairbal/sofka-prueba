@@ -1,0 +1,10 @@
+<img class="img" (load)="onLoad()" [ngClass]="!isValidImage ? 'hidden':''" src={{imageUrl}} alt={{alt}}>
+
+@if (!isValidImage) {
+    <div class="container">
+        <div class="img placeholder">
+            {{getPlaceholder()}}
+        </div>
+    </div>
+
+}

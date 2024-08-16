@@ -1,0 +1,1 @@
+export const DELAY_FOR_CLOSE_TOAST = 100000;

@@ -3,6 +3,8 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, Reac
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { dateValidator } from '../../validators/date.validator';
+import { MessageService } from '../../services/message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product-form',
@@ -14,7 +16,7 @@ import { dateValidator } from '../../validators/date.validator';
 export class AddProductFormComponent implements OnInit {
   public productForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private productService: ProductService) {}
+  constructor(private fb: FormBuilder, private productService: ProductService, private messageService: MessageService, private router: Router) {}
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
@@ -40,8 +42,14 @@ export class AddProductFormComponent implements OnInit {
   sendProduct(): void {
     if (this.productForm.valid) {
       const formData = this.productForm.value;
-      this.productService.submitProduct(formData).subscribe(response => {
-        //todo: agregar mensaje de guardado con exito
+      this.productService.submitProduct(formData).subscribe({
+        next: (Response) => {
+          this.messageService.onSuccess("Producto creado correctamente!")
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          this.messageService.onError(error.error.message)
+        }
       });
 
     } else {

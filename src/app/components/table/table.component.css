@@ -20,3 +20,11 @@
 .table-head__col {
     text-align: center;
 }
+
+.table-body__row {
+    border-top: 1px solid var(--primary-gray);
+}
+
+.table-body__col {
+    text-align: center;
+}

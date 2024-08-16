@@ -4,6 +4,7 @@ import { catchError, map, Observable, of } from 'rxjs';
 import { IProduct } from '../../models/product.model';
 import { IResponse } from '../../models/response.model';
 import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
+import { MessageService } from './message.service';
 
 export type EntityResponseType = HttpResponse<IResponse<IProduct[]>>
 export type EntityResponseIdType = HttpResponse<boolean>
@@ -12,14 +13,13 @@ export type EntityResponseIdType = HttpResponse<boolean>
   providedIn: 'root'
 })
 export class ProductService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private messageService: MessageService) { }
 
   getProducts(): Observable<EntityResponseType> {
     return this.http.get<IResponse<IProduct[]>>("/bp/products", { observe: 'response' });
   }
 
   submitProduct(productData: any): Observable<any> {
-    console.log('productData', productData)
     productData.date_release = new Date(productData.date_release).toISOString();
     productData.date_revision = new Date(productData.date_revision).toISOString();
     return this.http.post('/bp/products', productData);

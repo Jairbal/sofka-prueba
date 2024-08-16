@@ -11,6 +11,24 @@
         </tr>
     </thead>
     <tbody>
-
+        @for (product of products; track $index) {
+            <tr class="table-body__row">
+                <td class="table-body__col">
+                    <app-product-image alt={{product.name}} imageUrl={{product.logo}} />
+                </td>
+                <td class="table-body__col">
+                    {{product.name}}
+                </td>
+                <td class="table-body__col">
+                    {{product.description}}
+                </td>
+                <td class="table-body__col">
+                    {{dateFormat(product.date_release)}}
+                </td>
+                <td class="table-body__col">
+                    {{dateFormat(product.date_revision)}}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
