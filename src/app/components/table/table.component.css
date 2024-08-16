@@ -1,8 +1,12 @@
 .table {
-    background-color: white;
+    border-bottom: 1px solid gray;
     padding: 1rem;
     width: 100%;
     color: var(--primar-text);
+}
+
+.table-container {
+    background-color: white;
 }
 
 .table-head {
@@ -22,9 +26,22 @@
 }
 
 .table-body__row {
-    border-top: 1px solid var(--primary-gray);
+    border-bottom: 1px solid gray;
 }
 
 .table-body__col {
     text-align: center;
+}
+
+.table-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.table-options__select {
+    width: 50px;
+    height: 30px;
 }

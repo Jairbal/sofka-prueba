@@ -1,3 +1,4 @@
+<div class="table-container">
 <table class="table">
     <thead class="table-head">
         <tr class="table-head__row">
@@ -28,7 +29,19 @@
                 <td class="table-body__col">
                     {{dateFormat(product.date_revision)}}
                 </td>
+                <td class="table-body__col">
+                    <fa-icon size="1x" [icon]="faEllipsisVeritical"></fa-icon>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<div class="table-options">
+    <p>{{products.length}} Resultados</p>
+    <select (change)="onChangeSelect($event)" class="table-options__select" name="" id="">
+        @for (num of listNumElements; track $index) {
+            <option value="{{num}}">{{num}}</option>
+        }
+    </select>
+</div>
+</div>
